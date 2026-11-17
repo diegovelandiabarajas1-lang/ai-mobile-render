@@ -1,0 +1,16 @@
+# AI Mobile: tu propio servidor gratuito en Render (sin tarjeta).
+# Al crearlo, Render te pide la contraseña (OPENCODE_SERVER_PASSWORD): la app te la genera y la copia por ti.
+services:
+  - type: web
+    name: ai-mobile
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: OPENCODE_SERVER_PASSWORD
+        sync: false
+      - key: OPENCODE_PORT
+        value: "10000"
+      - key: PORT
+        value: "10000"
