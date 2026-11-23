@@ -1,5 +1,6 @@
-# AI Mobile: tu propio servidor gratuito en Render (sin tarjeta).
-# Al crearlo, Render te pide la contraseña (OPENCODE_SERVER_PASSWORD): la app te la genera y la copia por ti.
+# Blueprint de Render: Wichinion (motor propio de Wichi) en el plan gratuito, sin tarjeta.
+# La contraseña la genera Render (OPENCODE_SERVER_PASSWORD, nombre heredado que Wichinion entiende): léela en el panel,
+# Environment, y escríbela en la app. No va en este archivo.
 services:
   - type: web
     name: ai-mobile
@@ -11,6 +12,14 @@ services:
       - key: OPENCODE_SERVER_PASSWORD
         sync: false
       - key: OPENCODE_PORT
+        value: "10000"
+      - key: PORT
+        value: "10000"
+    autoDeployTrigger: commit
+    envVars:
+      - key: OPENCODE_SERVER_PASSWORD
+        generateValue: true
+      - key: MOTOR_PORT
         value: "10000"
       - key: PORT
         value: "10000"
